@@ -81,4 +81,18 @@ def repeat_kv(x: torch.Tensor, n_rep :int) -> torch.Tensor:
         .reshape(batch_size,seq_len,n_kv_heads * n_rep, head_dim)    
     )
     
+class SelfAttention(nn.Module):
+    def __init__(self, args: ModelArgs):
+        super().__init__()
+        
+        #number of heads for the Keys and Values
+        self.n_kv_heads = args.n_heads if args.n_kv_heads is None else args.n_kv_heads
+        
+        #Number of heads for the queries
+        self.n_heads_q = args.n_heads
+        self.n_rep = self.n_heads_q // self.n_kv_heads # Repetiton of the query
+        self.head_dim = args.dim // args.n_heads
+        
+        
+    
 
