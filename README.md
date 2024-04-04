@@ -37,10 +37,7 @@ The LLaMA project focuses on the following key components:
 
 ## Dependencies
 
-- PyTorch
-- SentencePiece
-- tqdm
-- Other dependencies as listed in `requirements.txt`
+- PyTorch and its dependencies
 
 ## License
 
